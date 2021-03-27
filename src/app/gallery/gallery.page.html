@@ -10,6 +10,63 @@
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
+
+          <ion-card>
+            <ion-card-content>
+              <ion-item>
+                  <ion-label>Ville</ion-label>
+                  <ion-input type="text" [(ngModel)]="keyword"></ion-input>
+                  <ion-button (click)="onLoadImages()">OK</ion-button>
+              </ion-item>
+            </ion-card-content>
+        </ion-card>
+
+        <ion-list *ngIf="dataImages">
+          
+            <ion-card *ngFor="let images of  dataImages"> 
+              <ion-item>
+                <ion-avatar slot="start">
+                  <ion-img [src]="images.userImageURL"></ion-img>
+                </ion-avatar>
+                <h2> {{images.user}}</h2>
+              </ion-item>
+              <ion-card-header>  </ion-card-header>
+              <ion-card-content>
+                  <ion-img [src]="images.previewURL"></ion-img>
+              </ion-card-content>
+                
+              <ion-row>
+                      <ion-col>
+                        <button fill="outline" ion-button icon-start clear small>
+                          <ion-icon name="thumbs-up"></ion-icon>
+                          <div>{{images.likes}}</div>
+                        </button>
+                      </ion-col>
+                      <ion-col>
+                        <button fill="outline" ion-button icon-start clear small>
+                          <ion-icon name="text"></ion-icon>
+                          <div>{{images.comments}}</div>
+                        </button>
+                      </ion-col>
+
+                      <ion-col align-self-center text-center>
+                        <button fill="outline" ion-button icon-start clear small>
+                          <ion-note>
+                          {{images.favorites}}
+                          </ion-note>
+                        </button>
+                      </ion-col>
+
+                 </ion-row>
+
+            </ion-card>
+        </ion-list>
+
+        <ion-infinite-scroll (ionInfinite)="loadData($event)"  loadingSpinner="bubbles" loadingText="loading more data...">
+          <ion-infinite-scroll-content></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+       
 
 </ion-content>
