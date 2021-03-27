@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons>
+      <ion-menu-button slot="start"></ion-menu-button>
+      <ion-title>
+        HOME
+       </ion-title>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+      <ion-card>
+            <ion-card-header>
+                  <ion-card-title color="secondary"> UCAD MAMADOU NDIAYE</ion-card-title>
+            </ion-card-header>
+
+            
+            <ion-card-content>
+                     <!--  <ion-img src={{contact.logo}} ></ion-img> -->
+                      <ion-img [src]="contact.logo" ></ion-img>
+                      <ion-list>
+                        <ion-item>Name: <strong> {{contact.name}} </strong></ion-item>
+                        <ion-item>Email:<strong> {{contact.email}} </strong></ion-item>
+                        <ion-item>Telephone: <strong>{{contact.tel}} </strong></ion-item>
+                      </ion-list>
+                      <ion-img [src]="contact.location" ></ion-img>
+            </ion-card-content>
+      </ion-card>    
+</ion-content>
